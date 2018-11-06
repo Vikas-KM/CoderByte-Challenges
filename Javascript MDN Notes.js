@@ -50,9 +50,10 @@ var myvar = 'my value';
 })();
 
 /*
-Function hoistingSection
+Function hoisting Section
 For functions, only the function declaration gets hoisted to the top and not the function expression.
 */
+
 /* Function declaration */
 
 foo(); // "bar"
@@ -98,10 +99,12 @@ console.log(PI);  //logs TypeError: Assignment to constant variable.
 //For + it converts numeric into string
 console.log('37' - 7); // logs = 30
 console.log('37' + 7); //logs = "377"
+console.log(+'37' + 7); //logs = 44, see below for details
 
 //An alternative method of retrieving a number from a string is with the + (unary plus) operator:
 console.log('1.1' + '1.1'); //logs 1.11.1
 console.log(+'1.1' + +'1.1'); //logs 2.2
+
 
 var myList = ['home', , 'school', ];
 console.log(myList.length); //logs 3
@@ -114,7 +117,7 @@ console.log(myList.length); //logs 4
 var car = { 
     myCar: 'Saturn', 
     getCar: 'Honda', 
-    special: 'Toyota'   //missing ; for the last
+    special: 'Toyota'   //NO comma',' for the last remember
 };
 
 console.log(car.myCar);  //logs Saturn
@@ -155,6 +158,7 @@ null
 0
 NaN
 the empty string ("")
+
 */
 if(!undefined && !0 && !NaN && !false && !(''))
     console.log('Falsy Values');
@@ -204,9 +208,9 @@ try {
     // by the return in finally
     console.log('caught outer "bogus"');
 }
-  
-  // OUTPUT
-  // caught inner "bogus"
+// OUTPUT
+// caught inner "bogus"
+
 
 /*
 A Promise is in one of these states:
