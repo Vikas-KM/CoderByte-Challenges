@@ -768,3 +768,21 @@ Number.isSafeInteger();
 var dateYear = new Date();
 var year = dateYear.getFullYear();
 console.log(year);  // prints the current year
+
+//! Template Literals
+
+// Template literals are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them.
+
+// Template literals are enclosed by the back-tick (` `) (grave accent) character instead of double or single quotes. Template literals can contain place holders. 
+//* These are indicated by the Dollar sign and curly braces (${expression}).
+
+console.log(`string text line 1
+string text line 2`);
+// "string text line 1
+// string text line 2"
+
+var a = 5;
+var b = 10;
+console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
+// "Fifteen is 15 and
+// not 20."
