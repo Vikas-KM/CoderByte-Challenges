@@ -448,15 +448,15 @@ number 5(8 bit) 00000101
 For non - negative numbers, zero - fill right shift and sign - propagating right shift yield the same result.For example, 9 >>> 2 yields 2, the same as 9 >> 2:
 */
 
-// 9         (base 10): 00000000000000000000000000001001(base 2)
-// 9 >>> 2   (base 10): 00000000000000000000000000000010(base 2) = 2(base 10)
+var bar = 9;  //(base 10): 00000000000000000000000000001001(base 2)
+bar >>> 2  //(base 10): 00000000000000000000000000000010(base 2) = 2(base 10)
 
 //However, this is not the
 //case for negative numbers.
 //For example, -9 >>> 2 yields 1073741821, which is different than - 9 >> 2(which yields - 3):
 
-// 9           (base 10): 11111111111111111111111111110111(base 2) 
-// -9 >>> 2    (base 10): 00111111111111111111111111111101(base 2) = 1073741821(base 10)
+var bar = -9;   //(base 10): 11111111111111111111111111110111(base 2) 
+bar >>> 2  //(base 10): 00111111111111111111111111111101(base 2) = 1073741821(base 10)
 
 
 /*      Destructuring     */
@@ -704,3 +704,67 @@ var lyrics = ['head', ...parts, 'and', 'toes'];
 function f(x, y, z) { }
 var args = [0, 1, 2];
 f(...args);
+
+//!   Numbers and dates
+
+// The number type has three symbolic values: 
+// +Infinity, 
+// -Infinity, 
+// and NaN (not-a-number).
+
+//* Note that decimal literals can start with a zero (0) followed by another decimal digit, but if every digit after the leading 0 is smaller than 8, the number gets parsed as an octal number.
+
+0888 // 888 parsed as decimal
+0777 // parsed as octal in non-strict mode (511 in decimal)
+
+// ! Binary numbers
+// Binary number syntax uses a leading zero followed by a lowercase or uppercase Latin letter "B" (0b or 0B). If the digits after the 0b are not 0 or 1, the following SyntaxError is thrown: "Missing binary digits after 0b".
+
+var BIN_INT = 0b1010101010101;
+var BIN_INT = 0B10110101010100;
+// var ERROR_INT = 0b10192938733; //Throws syntax error
+
+
+
+//! Hexadecimal numbers
+// Hexadecimal number syntax uses a leading zero followed by a lowercase or uppercase Latin letter "X" (0x or 0X). If the digits after 0x are outside the range (0123456789ABCDEF),  the following SyntaxError is thrown: "Identifier starts immediately after numeric literal".
+
+0xFFFFFFFFFFFFFFFFF // 295147905179352830000
+0x123456789ABCDEF   // 81985529216486900
+
+
+//! Exponentiation
+1E3   // 1000
+2e6   // 2000000
+0.1e2 // 10
+
+//! Number object
+var biggestNum = Number.MAX_VALUE;
+var smallestNum = Number.MIN_VALUE;
+var infiniteNum = Number.POSITIVE_INFINITY;
+var negInfiniteNum = Number.NEGATIVE_INFINITY;
+var notANum = Number.NaN;
+
+console.log(biggestNum);  //1.7976931348623157e+308
+console.log(smallestNum); //5e-324
+console.log(infiniteNum); //Infinity
+console.log(negInfiniteNum); //-Infinity
+console.log(notANum); //NaN
+
+//! Methods of Number
+Number.parseFloat();
+Number.parseInt();
+Number.isFinite();
+Number.isInteger();
+Number.isNaN();
+Number.isSafeInteger();
+
+//* A safe integer is an integer that
+
+// can be exactly represented as an IEEE-754 double precision number, and
+// whose IEEE-754 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation.
+// For example, 253 - 1 is a safe integer: it can be exactly represented, and no other integer rounds to it under any IEEE-754 rounding mode. In contrast, 253 is not a safe integer: it can be exactly represented in IEEE-754, but the integer 253 + 1 can't be directly represented in IEEE-754 but instead rounds to 253 under round-to-nearest and round-to-zero rounding.  The safe integers consist of all integers from -(253 - 1) inclusive to 253 - 1 inclusive (± 9007199254740991 or ± 9,007,199,254,740,991).  
+
+var dateYear = new Date();
+var year = dateYear.getFullYear();
+console.log(year);  // prints the current year
