@@ -786,3 +786,14 @@ var b = 10;
 console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
 // "Fifteen is 15 and
 // not 20."
+
+// !Regular Expressions
+
+var re = /ab*c/;
+
+// For example, the pattern /ab*c/ matches any character combination in which a single 'a' is followed by zero or more 'b's (* means 0 or more occurrences of the preceding item) and then immediately followed by 'c'. In the string "cbbabbbbcdebc," the pattern matches the substring 'abbbbc'.
+
+
+var str = /abc/;
+
+// For example, the pattern /abc/ matches character combinations in strings only when exactly the characters 'abc' occur together and in that order. Such a match would succeed in the strings "Hi, do you know your abc's?" and "The latest airplane designs evolved from slabcraft." In both cases the match is with the substring 'abc'. There is no match in the string 'Grab crab' because while it contains the substring 'ab c', it does not contain the exact substring 'abc'.
