@@ -797,3 +797,47 @@ var re = /ab*c/;
 var str = /abc/;
 
 // For example, the pattern /abc/ matches character combinations in strings only when exactly the characters 'abc' occur together and in that order. Such a match would succeed in the strings "Hi, do you know your abc's?" and "The latest airplane designs evolved from slabcraft." In both cases the match is with the substring 'abc'. There is no match in the string 'Grab crab' because while it contains the substring 'ab c', it does not contain the exact substring 'abc'.
+
+
+// !  \w
+
+// Matches any alphanumeric character including the underscore. Equivalent to [A-Za-z0-9_].
+
+// For example, /\w/ matches 'a' in "apple," '5' in "$5.28," and '3' in "3D."
+
+
+// !  \W
+
+// Matches any non-word character. Equivalent to [^A-Za-z0-9_].
+
+// For example, /\W/ or /[^A-Za-z0-9_]/ matches '%' in "50%."
+
+
+// * Indexed collections
+
+var arr = Array();
+console.log(arr.length);
+
+var arr = ['one', 'two', 'three'];
+arr[2];  // three
+console.log(arr['length']);
+console.log(arr.length);
+
+var cats = ['Dusty', 'Misty', 'Twiggy'];
+console.log(cats.length); // 3
+
+cats.length = 2;
+console.log(cats); // logs "Dusty, Misty" - Twiggy has been removed
+
+cats.length = 0;
+console.log(cats); // logs []; the cats array is empty
+
+cats.length = 3;
+console.log(cats); // logs [ <3 empty items> ]
+
+var colors = ['red', 'green', 'blue'];
+colors.forEach(color => console.log(color)); 
+
+var myArray = new Array('Wind', 'Rain', 'Fire');
+var list = myArray.join(' - '); // list is "Wind - Rain - Fire"
+console.log(list);
